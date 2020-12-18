@@ -3,9 +3,11 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {ProgressComponent} from './progress/progress.component';
 import {Graficas1Component} from './graficas1/graficas1.component';
 import {PagesComponent} from './pages.component';
+import {IncrementadorComponent} from '../components/incrementador/incrementador.component';
 
 // Modulos
 import {SharedModule} from '../shared/shared.module';
+import {FormsModule} from '@angular/forms';
 
 // Rutas
 import {PAGES_ROUTES} from './pages.routes';
@@ -16,10 +18,12 @@ import {PAGES_ROUTES} from './pages.routes';
     DashboardComponent,
     ProgressComponent,
     Graficas1Component,
+    IncrementadorComponent
   ],
   imports: [
     SharedModule,
-    PAGES_ROUTES
+    PAGES_ROUTES,
+    FormsModule
   ],
   exports: [
     DashboardComponent,

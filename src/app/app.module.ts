@@ -11,10 +11,16 @@ import {APP_ROUTES} from './app.routes';
 // Modulos
 import {PagesModule} from './pages/pages.module';
 
+// Servicios
+import {ServiceModule} from './services/service.module';
+
 // import ngx-translate and the http loader
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+
+// Temporal
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +32,9 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     BrowserModule,
     APP_ROUTES,
     PagesModule,
+    ServiceModule,
+
+    FormsModule,
 
     // ngx-translate and the loader module
     HttpClientModule,

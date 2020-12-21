@@ -6,6 +6,7 @@ import {PagesComponent} from './pages.component';
 import {IncrementadorComponent} from '../components/incrementador/incrementador.component';
 import {GraficoDonaComponent} from '../components/grafico-dona/grafico-dona.component';
 import {AccountSettingComponent} from './account-setting/account-setting.component';
+import {PromesasComponent} from './promesas/promesas.component';
 
 // Modulos
 import {SharedModule} from '../shared/shared.module';
@@ -14,6 +15,7 @@ import {ChartsModule} from 'ng2-charts';
 
 // Rutas
 import {PAGES_ROUTES} from './pages.routes';
+import {RxjsComponent} from './rxjs/rxjs.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {PAGES_ROUTES} from './pages.routes';
     Graficas1Component,
     IncrementadorComponent,
     GraficoDonaComponent,
-    AccountSettingComponent
+    AccountSettingComponent,
+    PromesasComponent,
+    RxjsComponent
   ],
   imports: [
     SharedModule,

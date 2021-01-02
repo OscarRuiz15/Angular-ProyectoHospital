@@ -4,6 +4,9 @@ import {HttpClient} from '@angular/common/http';
 import {URL_SERVICIOS} from '../../config/config';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
+import {SubirArchivoService} from '../subir-archivo/subir-archivo.service';
+import {Icon} from '../../shared/enum/icon.enum';
+import {SwalService} from '../shared/swal.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +16,10 @@ export class UsuarioService {
   usuario: Usuario;
   token: string;
 
-  constructor(public http: HttpClient, public router: Router) {
-    console.log('Servicio listo');
+  constructor(public http: HttpClient,
+              public router: Router,
+              public _subirArchivoService: SubirArchivoService,
+              public _swalService: SwalService) {
     this.cargarStorage();
   }
 
@@ -84,6 +89,29 @@ export class UsuarioService {
         return response.usuario;
       })
     );
+  }
+
+  actualizarUsuario(usuario: Usuario) {
+    let url = URL_SERVICIOS + '/usuario/' + usuario._id;
+    url += '?token=' + this.token;
+
+    return this.http.put(url, usuario).pipe(
+      map((response: any) => {
+        this.guardarStorage(response.usuario.id, this.token, response.usuario);
+      })
+    );
+  }
+
+  cambiarImagen(archivo: File, id: string) {
+    this._subirArchivoService.subirArchivo(archivo, 'usuarios', id)
+      .then((response: any) => {
+        this.usuario.img = response.usuario.img;
+        this._swalService.alert('Imagen actualizada', this.usuario.nombre, Icon.SUCCESS);
+        this.guardarStorage(id, this.token, this.usuario);
+      })
+      .catch(response => {
+        console.log(response);
+      });
   }
 
 }

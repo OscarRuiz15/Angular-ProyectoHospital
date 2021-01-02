@@ -20,7 +20,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 // Temporal
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,6 +35,7 @@ import {FormsModule} from '@angular/forms';
     ServiceModule,
 
     FormsModule,
+    ReactiveFormsModule,
 
     // ngx-translate and the loader module
     HttpClientModule,

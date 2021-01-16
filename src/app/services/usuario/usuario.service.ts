@@ -114,4 +114,24 @@ export class UsuarioService {
       });
   }
 
+  cargarUsuarios(desde: number = 0) {
+    const url = URL_SERVICIOS + '/usuario?desde=' + desde;
+    return this.http.get(url);
+  }
+
+  buscarUsuarios(termino: string) {
+    const url = `${URL_SERVICIOS}/busqueda/coleccion/usuarios/${termino}`;
+    return this.http.get(url).pipe(
+      map((response: any) => {
+        return response.usuarios;
+      })
+    );
+  }
+
+  borrarUsuario(id: string) {
+    const url = `${URL_SERVICIOS}/usuario/${id}?token=${this.token}`;
+
+    return this.http.delete(url);
+  }
+
 }

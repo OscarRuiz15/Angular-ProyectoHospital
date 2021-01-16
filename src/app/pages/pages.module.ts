@@ -19,6 +19,7 @@ import {PipesModule} from '../pipes/pipes.module';
 import {PAGES_ROUTES} from './pages.routes';
 import {RxjsComponent} from './rxjs/rxjs.component';
 import {CommonModule} from '@angular/common';
+import {UsuariosComponent} from './usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {CommonModule} from '@angular/common';
     AccountSettingComponent,
     PromesasComponent,
     RxjsComponent,
-    ProfileComponent
+    ProfileComponent,
+    UsuariosComponent
   ],
   imports: [
     SharedModule,
